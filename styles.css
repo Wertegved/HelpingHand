@@ -1,0 +1,332 @@
+:root {
+  --bg-start: #031428;
+  --bg-end: #0a2145;
+  --surface: rgba(255, 255, 255, 0.08);
+  --surface-strong: rgba(255, 255, 255, 0.14);
+  --panel: rgba(7, 22, 53, 0.92);
+  --primary: #4dabf7;
+  --success: #2dd4bf;
+  --warning: #f59e0b;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --shadow: 0 30px 80px rgba(0, 0, 0, 0.26);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, rgba(77, 171, 247, 0.14), transparent 20%),
+    radial-gradient(circle at bottom right, rgba(45, 212, 191, 0.12), transparent 24%),
+    linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%);
+  color: var(--text);
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.container {
+  max-width: 1180px;
+}
+
+header {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(31, 56, 132, 0.96), rgba(6, 19, 54, 0.98));
+  border-radius: 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow);
+  padding: 3rem 1.75rem;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(77, 171, 247, 0.12), transparent 22%),
+    radial-gradient(circle at 80% 30%, rgba(45, 212, 191, 0.12), transparent 18%);
+  pointer-events: none;
+}
+
+header > div {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 0.95;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: #f8fafc;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  font-weight: 600;
+  color: #dbeafe;
+}
+
+header p {
+  color: rgba(248, 250, 252, 0.78);
+}
+
+header .small,
+header .text-muted {
+  color: rgba(248, 250, 252, 0.7) !important;
+}
+
+.nav-panel {
+  border-radius: 1.5rem;
+  background: rgba(4, 14, 36, 0.9);
+  border: 1px solid rgba(77, 171, 247, 0.16);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.16);
+}
+
+.nav-panel .btn {
+  border-radius: 999px;
+  padding: 0.7rem 1rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-panel .btn:hover:not(:disabled) {
+  background: rgba(77, 171, 247, 0.16);
+}
+
+.nav-panel .btn.active {
+  background: rgba(77, 171, 247, 0.3);
+  color: #f8fafc;
+  border-color: rgba(77, 171, 247, 0.4);
+}
+
+.screen {
+  display: none;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.active-screen {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+
+.card-body {
+  padding: 1.7rem;
+}
+
+.btn {
+  border-radius: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #4dabf7, #60a5fa);
+  border-color: transparent;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #2dd4bf, #14b8a6);
+  border-color: transparent;
+}
+
+.btn-outline-secondary {
+  color: #e2e8f0;
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-outline-secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.14);
+  color: #f8fafc;
+}
+
+.btn-outline-primary {
+  color: #dbeafe;
+  border-color: rgba(77, 171, 247, 0.32);
+  background: rgba(77, 171, 247, 0.08);
+}
+
+.btn-outline-primary:hover:not(:disabled) {
+  background: rgba(77, 171, 247, 0.2);
+}
+
+.btn:disabled,
+.btn.disabled {
+  opacity: 0.55;
+}
+
+.task-status-card,
+.summary-card,
+.status-box,
+.confirmation-card,
+.payment-success-card,
+.review-card,
+.leaderboard-card,
+.info-panel {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 2px 8px rgba(255, 255, 255, 0.04);
+}
+
+.task-status-card {
+  background: linear-gradient(145deg, rgba(77, 171, 247, 0.18), rgba(15, 23, 42, 0.3));
+}
+
+.info-panel {
+  border: 1px solid rgba(77, 171, 247, 0.12);
+}
+
+.avatar-placeholder,
+.avatar-selected {
+  width: 76px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  border-radius: 1.5rem;
+  background: linear-gradient(135deg, #4dabf7, #0b61d1);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+.avatar-secondary {
+  background: linear-gradient(135deg, #8b5cf6, #4f46e5);
+}
+
+.avatar-tertiary {
+  background: linear-gradient(135deg, #2dd4bf, #02897a);
+}
+
+.helper-card {
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.helper-card:hover {
+  transform: translateY(-8px);
+}
+
+.summary-card,
+.status-box,
+.confirmation-card,
+.leaderboard-card {
+  border-radius: 1.75rem;
+}
+
+.status-box {
+  padding: 1.5rem;
+}
+
+.confirmation-card:hover {
+  transform: translateY(-4px);
+}
+
+.payment-success-card {
+  background: linear-gradient(180deg, rgba(45, 212, 191, 0.12), rgba(255, 255, 255, 0.16));
+  padding: 2rem;
+}
+
+.icon-shell {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--success);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  margin: 0 auto;
+  box-shadow: 0 18px 40px rgba(45, 212, 191, 0.18);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+.review-card {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.review-avatar,
+.leader-icon,
+.leader-number {
+  width: 60px;
+  height: 60px;
+  border-radius: 1.25rem;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.review-avatar {
+  background: linear-gradient(135deg, #4dabf7, #2563eb);
+}
+
+.review-avatar-secondary {
+  background: linear-gradient(135deg, #2dd4bf, #0f766e);
+}
+
+.leader-icon {
+  background: linear-gradient(135deg, #f59e0b, #f97316);
+  color: #0f172a;
+}
+
+.leader-number {
+  background: linear-gradient(135deg, #4dabf7, #1d4ed8);
+}
+
+.leaderboard-card.top-helper {
+  border-color: rgba(245, 158, 11, 0.28);
+}
+
+.confirmation-card .form-check-label {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.form-check-custom .form-check-input {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.progress {
+  height: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+}
+
+.progress-bar {
+  border-radius: 999px;
+  background: linear-gradient(135deg, #4dabf7, #60a5fa);
+}
+
+p,
+.text-muted {
+  color: var(--muted) !important;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+@media (max-width: 767px) {
+  .avatar-placeholder,
+  .avatar-selected,
+  .review-avatar,
+  .leader-icon,
+  .leader-number {
+    width: 52px;
+    height: 52px;
+  }
+}
